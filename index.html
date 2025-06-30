@@ -9,37 +9,71 @@ git push origin main -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Umesh Pandey | Portfolio</title>
- <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    body { font-family: 'Poppins', sans-serif; transition: background-color 0.3s, color 0.3s; }
-    body {
-      background-color: #1a202c;
-      color: #f1f5f9;
+    body { 
+      font-family: 'Poppins', sans-serif; 
+      transition: background-color 0.3s, color 0.3s;
+      background-color: #111827;
+      color: #f3f4f6;
     }
-    a { color: #60a5fa; }
-    .bg-white { background-color: #2d3748 !important; }
-    .text-gray-700 { color: #e2e8f0 !important; }
-    .text-gray-600 { color: #cbd5e1 !important; }
-    .bg-blue-50 { background-color: #1e293b !important; }
-    .bg-blue-100 { background-color: #334155 !important; }
-    .bg-gray-100 { background-color: #1a202c !important; }
+    a { 
+      color: #60a5fa;
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: #3b82f6;
+    }
+    .bg-white { 
+      background-color: #1f2937 !important; 
+    }
+    .text-gray-700 { 
+      color: #d1d5db !important; 
+    }
+    .text-gray-600 { 
+      color: #9ca3af !important; 
+    }
+    .bg-blue-50 { 
+      background-color: #1e293b !important; 
+    }
+    .bg-blue-100 { 
+      background-color: #1e3a8a !important; 
+    }
+    .bg-gray-100 { 
+      background-color: #111827 !important; 
+    }
     .skill-box {
-      background-color: #475569 !important;
+      background-color: #1e293b !important;
       color: #e2e8f0 !important;
-      border: 1px solid #64748b;
-      box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+      border: 1px solid #334155;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .project-card {
+      background-color: #1e293b;
+      border: 1px solid #334155;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .header {
+      background-color: #1f2937;
+      border-bottom: 1px solid #374151;
+    }
+    .footer {
+      background-color: #1e3a8a;
     }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-800" id="mainBody">
+<body class="bg-gray-100 text-gray-200" id="mainBody">
 
   <!-- Header -->
-   <header class="bg-white shadow-md fixed w-full z-10">
+  <header class="header shadow-md fixed w-full z-10">
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-extrabold text-blue-400 tracking-wide animate-pulse">👨‍💻 Umesh Pandey</h1>
+      <h1 class="text-2xl font-extrabold text-blue-400 tracking-wide">👨‍💻 Umesh Pandey</h1>
       <div class="flex items-center space-x-6">
         <nav class="hidden md:flex space-x-6 text-sm font-medium">
           <a href="#about" class="hover:text-blue-400 transition">🏠 About</a>
@@ -55,19 +89,29 @@ git push origin main -->
   <!-- Hero -->
   <section class="pt-24 pb-16 bg-blue-50" data-aos="fade-up">
     <div class="max-w-6xl mx-auto px-6 text-center">
-      <img src="umeshIMG.jpg" alt="Umesh Pandey" class="mx-auto rounded-full w-40 h-40 mb-6 shadow-md hover:scale-105 transition-transform duration-500">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">Umesh Pandey</h2>
-      <p class="text-lg text-gray-700 mb-4">Java Full Stack & Android Application Developer</p>
-      <a href="#contact" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-full shadow hover:bg-blue-700 transition">Hire Me</a>
+      <img src="umeshIMG.jpg" alt="Umesh Pandey" class="mx-auto rounded-full w-40 h-40 mb-6 shadow-lg hover:scale-105 transition-transform duration-500 border-4 border-blue-500">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Umesh Pandey</h2>
+      <p class="text-lg text-gray-300 mb-6">Java Full Stack & Android Application Developer</p>
+      <div class="flex justify-center space-x-4">
+        <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full shadow transition transform hover:-translate-y-1">
+          Hire Me
+        </a>
+        <a href="Umesh_Pandey_Resume.pdf" download class="inline-block bg-gray-700 hover:bg-gray-800 text-white px-6 py-2 rounded-full shadow transition transform hover:-translate-y-1">
+          📄 Download Resume
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- About -->
   <section id="about" class="py-16 bg-white" data-aos="fade-right">
     <div class="max-w-4xl mx-auto px-6">
-      <h3 class="text-2xl font-bold mb-4">About Me</h3>
-      <p class="text-gray-700 leading-relaxed">
-        I’m Umesh Pandey from Suwasra, Mandsaur (MP). I have completed BCA from Vikram University (2021–2024) and pursuing MCA from Mandsaur University (2024–2026). I love building full-stack applications and Android apps that solve real problems.
+      <h3 class="text-2xl font-bold mb-6 text-blue-400">About Me</h3>
+      <p class="text-gray-300 leading-relaxed">
+        I'm Umesh Pandey from Suwasra, Mandsaur (MP). I have completed BCA from Vikram University (2021–2024) and pursuing MCA from Mandsaur University (2024–2026). I love building full-stack applications and Android apps that solve real problems.
+      </p>
+      <p class="text-gray-300 leading-relaxed mt-4">
+        As a passionate developer, I specialize in creating efficient, user-friendly applications using modern technologies. My goal is to build solutions that make a difference while continuously improving my skills.
       </p>
     </div>
   </section>
@@ -75,20 +119,22 @@ git push origin main -->
   <!-- Skills -->
   <section id="skills" class="py-16 bg-blue-50" data-aos="zoom-in">
     <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-2xl font-bold mb-6 text-center">🛠 Skills</h3>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center text-sm">
-        <div class="bg-white p-4 rounded shadow">Java</div>
-        <div class="bg-white p-4 rounded shadow">C++</div>
-        <div class="bg-white p-4 rounded shadow">HTML/CSS</div>
-        <div class="bg-white p-4 rounded shadow">SQL</div>
-        <div class="bg-white p-4 rounded shadow">Spring Boot</div>
-        <div class="bg-white p-4 rounded shadow">Hibernate</div>
-        <div class="bg-white p-4 rounded shadow">React.js</div>
-        <div class="bg-white p-4 rounded shadow">JSP/Servlet</div>
-        <div class="bg-white p-4 rounded shadow">MySQL</div>
-        <div class="bg-white p-4 rounded shadow">SQLite</div>
-        <div class="bg-white p-4 rounded shadow">Android Studio</div>
-        <div class="bg-white p-4 rounded shadow">GitHub, Postman</div>
+      <h3 class="text-2xl font-bold mb-8 text-center text-blue-400">🛠 Skills</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="skill-box p-4 rounded-lg text-center font-medium">Java</div>
+        <div class="skill-box p-4 rounded-lg text-center font-medium">C++</div>
+        <div class="skill-box p-4 rounded-lg text-center font-medium">HTML/CSS</div>
+        <div class="skill-box p-4 rounded-lg text-center font-medium">JavaScript</div>
+        <div class="skill-box p-4 rounded-lg text-center font-medium">Spring Boot</div>
+        <div class="skill-box p-4 rounded-lg text-center font-medium">Hibernate</div>
+        <div class="skill-box p-4 rounded-lg text-center font-medium">React.js</div>
+        <div class="skill-box p-4 rounded-lg text-center font-medium">JSP/Servlet</div>
+        <div class="skill-box p-4 rounded-lg text-center font-medium">MySQL</div>
+        <div class="skill-box p-4 rounded-lg text-center font-medium">SQLite</div>
+        <div class="skill-box p-4 rounded-lg text-center font-medium">Android Studio</div>
+        <div class="skill-box p-4 rounded-lg text-center font-medium">Git/GitHub</div>
+        <div class="skill-box p-4 rounded-lg text-center font-medium">Postman</div>
+        <div class="skill-box p-4 rounded-lg text-center font-medium">Tailwind CSS</div>
       </div>
     </div>
   </section>
@@ -96,38 +142,67 @@ git push origin main -->
   <!-- Projects -->
   <section id="projects" class="py-16 bg-white" data-aos="fade-up">
     <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-2xl font-bold mb-6 text-center">📁 Projects</h3>
+      <h3 class="text-2xl font-bold mb-8 text-center text-blue-400">📁 Projects</h3>
       <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-blue-100 p-6 rounded-lg shadow hover:scale-105 transition-transform duration-300">
-          <h4 class="text-xl font-semibold mb-2">🚜 Farm Mechanization Status in India</h4>
-          <p class="text-gray-700 text-sm mb-2">
+        <!-- Project 1 -->
+        <div class="project-card p-6 rounded-lg shadow transition-transform duration-300">
+          <h4 class="text-xl font-semibold mb-3 text-blue-400">🚜 Farm Mechanization Status in India</h4>
+          <p class="text-gray-300 text-sm mb-4">
             Internship at Prema Software Solution. Full Stack & Android App development for agriculture-tech integration, improving rural problem-solving.
           </p>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="bg-blue-900 text-blue-200 text-xs px-2 py-1 rounded">Java</span>
+            <span class="bg-blue-900 text-blue-200 text-xs px-2 py-1 rounded">Android</span>
+            <span class="bg-blue-900 text-blue-200 text-xs px-2 py-1 rounded">Full Stack</span>
+          </div>
         </div>
-        <div class="bg-blue-100 p-6 rounded-lg shadow hover:scale-105 transition-transform duration-300">
-          <h4 class="text-xl font-semibold mb-2">🅿️ Parking Management System</h4>
-          <p class="text-gray-700 text-sm mb-2">
+        
+        <!-- Project 2 -->
+        <div class="project-card p-6 rounded-lg shadow transition-transform duration-300">
+          <h4 class="text-xl font-semibold mb-3 text-blue-400">🅿️ Parking Management System</h4>
+          <p class="text-gray-300 text-sm mb-4">
             A smart Android-based Parking Management System built with Java and SQLite. It allows users to park vehicles, generate tickets with payment, and exit using the same ticket. Admin can view, update, and manage all parked vehicle records efficiently.
           </p>
-          <a href="https://github.com/umesh6296/ParkingManagement" target="_blank" class="inline-block mt-2 bg-gray-800 text-white px-4 py-1 rounded hover:bg-black transition text-sm">
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="bg-blue-900 text-blue-200 text-xs px-2 py-1 rounded">Java</span>
+            <span class="bg-blue-900 text-blue-200 text-xs px-2 py-1 rounded">Android</span>
+            <span class="bg-blue-900 text-blue-200 text-xs px-2 py-1 rounded">SQLite</span>
+          </div>
+          <a href="https://github.com/umesh6296/ParkingManagement" target="_blank" class="inline-block mt-4 bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded transition text-sm">
             View on GitHub
           </a>
         </div>
-        <div class="bg-blue-100 p-6 rounded-lg shadow hover:scale-105 transition-transform duration-300">
-          <h4 class="text-xl font-semibold mb-2">📝 Feedback System</h4>
-          <p class="text-gray-700 text-sm mb-2">
+        
+        <!-- Project 3 -->
+        <div class="project-card p-6 rounded-lg shadow transition-transform duration-300">
+          <h4 class="text-xl font-semibold mb-3 text-blue-400">📝 Feedback System</h4>
+          <p class="text-gray-300 text-sm mb-4">
             Web-based feedback system using JSP, Servlet & MySQL. Supports Admin and Student roles, ensures feedback is submitted only once per course.
           </p>
-          <a href="https://github.com/umesh6296/FeedBack-System" target="_blank" class="inline-block mt-2 bg-gray-800 text-white px-4 py-1 rounded hover:bg-black transition text-sm">
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="bg-blue-900 text-blue-200 text-xs px-2 py-1 rounded">Java</span>
+            <span class="bg-blue-900 text-blue-200 text-xs px-2 py-1 rounded">JSP</span>
+            <span class="bg-blue-900 text-blue-200 text-xs px-2 py-1 rounded">Servlet</span>
+            <span class="bg-blue-900 text-blue-200 text-xs px-2 py-1 rounded">MySQL</span>
+          </div>
+          <a href="https://github.com/umesh6296/FeedBack-System" target="_blank" class="inline-block mt-4 bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded transition text-sm">
             View on GitHub
           </a>
         </div>
-        <div class="bg-blue-100 p-6 rounded-lg shadow hover:scale-105 transition-transform duration-300">
-          <h4 class="text-xl font-semibold mb-2">📚 Online Course Selling Website</h4>
-          <p class="text-gray-700 text-sm mb-2">
+        
+        <!-- Project 4 -->
+        <div class="project-card p-6 rounded-lg shadow transition-transform duration-300">
+          <h4 class="text-xl font-semibold mb-3 text-blue-400">📚 Online Course Selling Website</h4>
+          <p class="text-gray-300 text-sm mb-4">
             Full Stack Web App using Spring Boot, Hibernate & MySQL. Students can browse, purchase and track courses through a personal dashboard.
           </p>
-          <a href="https://github.com/umesh6296/courseSelling" target="_blank" class="inline-block mt-2 bg-gray-800 text-white px-4 py-1 rounded hover:bg-black transition text-sm">
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="bg-blue-900 text-blue-200 text-xs px-2 py-1 rounded">Java</span>
+            <span class="bg-blue-900 text-blue-200 text-xs px-2 py-1 rounded">Spring Boot</span>
+            <span class="bg-blue-900 text-blue-200 text-xs px-2 py-1 rounded">Hibernate</span>
+            <span class="bg-blue-900 text-blue-200 text-xs px-2 py-1 rounded">MySQL</span>
+          </div>
+          <a href="https://github.com/umesh6296/courseSelling" target="_blank" class="inline-block mt-4 bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded transition text-sm">
             View on GitHub
           </a>
         </div>
@@ -138,43 +213,72 @@ git push origin main -->
   <!-- Education -->
   <section id="education" class="py-16 bg-blue-50" data-aos="fade-right">
     <div class="max-w-4xl mx-auto px-6">
-      <h3 class="text-2xl font-bold mb-6 text-center">🎓 Education</h3>
-      <ul class="space-y-4">
-        <li><strong>BCA</strong> – Vikram University (2021–2024)</li>
-        <li><strong>MCA</strong> – Mandsaur University (2024–2026)</li>
-      </ul>
+      <h3 class="text-2xl font-bold mb-6 text-blue-400">🎓 Education</h3>
+      <div class="space-y-6">
+        <div class="bg-gray-800 p-6 rounded-lg shadow">
+          <h4 class="text-lg font-semibold text-blue-400">Bachelor of Computer Applications (BCA)</h4>
+          <p class="text-gray-300">Vikram University (2021–2024)</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-lg shadow">
+          <h4 class="text-lg font-semibold text-blue-400">Master of Computer Applications (MCA)</h4>
+          <p class="text-gray-300">Mandsaur University (2024–2026)</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Contact -->
   <section id="contact" class="py-16 bg-white" data-aos="zoom-in">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <h3 class="text-2xl font-bold mb-4">📞 Get in Touch</h3>
-      <p class="mb-4 text-gray-600">Feel free to reach out for collaborations or job opportunities.</p>
-      <p><strong>Phone:</strong> 7049569401</p>
-      <p><strong>Email:</strong> <a href="mailto:rudrapandey1455@gmail.com" class="text-blue-600">rudrapandey1455@gmail.com</a></p>
-      <div class="mt-6">
-        <a href="Umesh_Pandey_Resume.pdf" download class="inline-block bg-blue-600 text-white px-6 py-2 rounded-full shadow hover:bg-blue-700 transition">
-          📄 Download Resume
-        </a>
-      </div>
-      <div class="mt-6 space-x-6 text-xl">
-        <a href="https://linkedin.com/in/umesh-pandey-4a6b83243" target="_blank" class="text-blue-600 hover:text-blue-800">🔗 LinkedIn</a>
-        <a href="https://github.com/umesh6296" target="_blank" class="text-gray-800 hover:text-black">💻 GitHub</a>
-        <a href="https://www.instagram.com/pandeyji5393/" target="_blank" class="text-pink-500 hover:text-pink-700">📸 Instagram</a>
+      <h3 class="text-2xl font-bold mb-6 text-blue-400">📞 Get in Touch</h3>
+      <p class="mb-8 text-gray-300 max-w-2xl mx-auto">Feel free to reach out for collaborations or job opportunities. I'm always open to discussing new projects and ideas.</p>
+      
+      <div class="grid md:grid-cols-2 gap-8 text-left max-w-2xl mx-auto">
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-blue-400">Contact Information</h4>
+          <p class="text-gray-300 mb-2"><span class="font-medium">Phone:</span> +91 7049569401</p>
+          <p class="text-gray-300 mb-2"><span class="font-medium">Email:</span> <a href="mailto:rudrapandey1455@gmail.com" class="text-blue-400 hover:underline">rudrapandey1455@gmail.com</a></p>
+          <p class="text-gray-300"><span class="font-medium">Location:</span> Suwasra, Mandsaur (MP), India</p>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-blue-400">Connect With Me</h4>
+          <div class="flex space-x-4 justify-center md:justify-start">
+            <a href="https://linkedin.com/in/umesh-pandey-4a6b83243" target="_blank" class="bg-blue-700 hover:bg-blue-800 text-white p-3 rounded-full transition">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+              </svg>
+            </a>
+            <a href="https://github.com/umesh6296" target="_blank" class="bg-gray-700 hover:bg-gray-800 text-white p-3 rounded-full transition">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/pandeyji5393/" target="_blank" class="bg-pink-600 hover:bg-pink-700 text-white p-3 rounded-full transition">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-blue-600 text-white py-4 text-center">
-    © 2025 Umesh Pandey. All rights reserved.
+  <footer class="footer text-white py-6 text-center">
+    <div class="max-w-6xl mx-auto px-6">
+      <p>© 2025 Umesh Pandey. All rights reserved.</p>
+      <p class="text-sm mt-2 text-blue-200">Designed and developed with ❤️ by Umesh Pandey</p>
+    </div>
   </footer>
 
   <script>
-    AOS.init();
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
   </script>
-
-
 </body>
 </html>
