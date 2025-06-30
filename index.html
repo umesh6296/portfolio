@@ -12,13 +12,23 @@
     body { font-family: 'Poppins', sans-serif; transition: background-color 0.3s, color 0.3s; }
     .dark-mode { background-color: #1a202c; color: white; }
   </style>
-  
+  <style>
+    body { font-family: 'Poppins', sans-serif; transition: background-color 0.3s, color 0.3s; }
+    .dark-mode { background-color: #1a202c; color: #f1f5f9; }
+    .dark-mode a { color: #60a5fa; }
+    .dark-mode .bg-white { background-color: #2d3748 !important; }
+    .dark-mode .text-gray-700 { color: #e2e8f0 !important; }
+    .dark-mode .text-gray-600 { color: #cbd5e1 !important; }
+    .dark-mode .bg-blue-50 { background-color: #1e293b !important; }
+    .dark-mode .bg-blue-100 { background-color: #334155 !important; }
+    .dark-mode .bg-gray-100 { background-color: #1a202c !important; }
+  </style>
 
 </head>
 <body class="bg-gray-100 text-gray-800" id="mainBody">
 
   <!-- Header -->
-  <header class="bg-white shadow-md fixed w-full z-10">
+   <header class="bg-white shadow-md fixed w-full z-10">
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
       <h1 class="text-2xl font-extrabold text-blue-600 tracking-wide animate-pulse">👨‍💻 Umesh Pandey</h1>
       <div class="flex items-center space-x-6">
@@ -29,11 +39,9 @@
           <a href="#education" class="hover:text-blue-600 transition">🎓 Education</a>
           <a href="#contact" class="hover:text-blue-600 transition">📞 Contact</a>
         </nav>
-        <!-- Dark Mode Toggle (right side) -->
-         <div class="bg-gray-100 text-gray-800" id="mainBody">
         <button onclick="toggleDarkMode()" class="bg-gray-800 text-white px-3 py-1 rounded shadow hover:bg-black transition text-sm">
           🌗 Dark Mode
-        </button></div>
+        </button>
       </div>
     </div>
   </header>
@@ -157,12 +165,12 @@
     © 2025 Umesh Pandey. All rights reserved.
   </footer>
 
-  <script>
-  AOS.init();
-  function toggleDarkMode() {
-    document.getElementById('mainBody').classList.toggle('dark-mode');
-  }
-</script>
+ <script>
+    AOS.init();
+    function toggleDarkMode() {
+      document.getElementById('mainBody').classList.toggle('dark-mode');
+    }
+  </script>
 
 
 </body>
