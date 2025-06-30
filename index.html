@@ -12,6 +12,17 @@
     body { font-family: 'Poppins', sans-serif; transition: background-color 0.3s, color 0.3s; }
     .dark-mode { background-color: #1a202c; color: white; }
   </style>
+  <style>
+  .dark-mode {
+    background-color: #1a202c;
+    color: #f1f5f9;
+  }
+
+  .dark-mode a { color: #60a5fa; }
+  .dark-mode .bg-white { background-color: #2d3748; }
+  .dark-mode .text-gray-700 { color: #e2e8f0; }
+</style>
+
 </head>
 <body class="bg-gray-100 text-gray-800" id="mainBody">
 
@@ -28,9 +39,10 @@
           <a href="#contact" class="hover:text-blue-600 transition">📞 Contact</a>
         </nav>
         <!-- Dark Mode Toggle (right side) -->
+         <div class="bg-gray-100 text-gray-800" id="mainBody">
         <button onclick="toggleDarkMode()" class="bg-gray-800 text-white px-3 py-1 rounded shadow hover:bg-black transition text-sm">
           🌗 Dark Mode
-        </button>
+        </button></div>
       </div>
     </div>
   </header>
@@ -155,11 +167,12 @@
   </footer>
 
   <script>
-    AOS.init();
-    function toggleDarkMode() {
-      document.getElementById('mainBody').classList.toggle('dark-mode');
-    }
-  </script>
+  AOS.init();
+  function toggleDarkMode() {
+    document.getElementById('mainBody').classList.toggle('dark-mode');
+  }
+</script>
+
 
 </body>
 </html>
