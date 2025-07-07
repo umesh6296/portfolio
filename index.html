@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,115 +12,143 @@
   <style>
     /* Custom Cursor Styles */
     .cursor {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: rgba(59, 130, 246, 0.7);
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    mix-blend-mode: screen;
-    transition: transform 0.1s;
-  }
-  
-  .cursor-particle {
-    position: fixed;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: #3b82f6;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.3s, transform 0.3s;
-  }
-  
-  .cursor-active {
-    transform: translate(-50%, -50%) scale(1.5);
-    background-color: rgba(59, 130, 246, 0.9);
-    box-shadow: 0 0 15px #3b82f6;
-  }
-  
-  /* Glow effect for interactive elements */
-  .glow-on-hover {
-    transition: box-shadow 0.3s;
-  }
-  
-  .glow-on-hover:hover {
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.7);
-  }
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: rgba(59, 130, 246, 0.7);
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: screen;
+      transition: transform 0.1s;
+    }
+
+    .cursor-particle {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #3b82f6;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .cursor-active {
+      transform: translate(-50%, -50%) scale(1.5);
+      background-color: rgba(59, 130, 246, 0.9);
+      box-shadow: 0 0 15px #3b82f6;
+    }
+
+    /* Glow effect for interactive elements */
+    .glow-on-hover {
+      transition: box-shadow 0.3s;
+    }
+
+    .glow-on-hover:hover {
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.7);
+    }
 
     /* Main Styles */
-    body { 
-      font-family: 'Poppins', sans-serif; 
+    body {
+      font-family: 'Poppins', sans-serif;
       transition: background-color 0.3s, color 0.3s;
       background-color: #111827;
       color: #f3f4f6;
       cursor: none;
     }
-    a { 
+
+    a {
       color: #60a5fa;
       transition: color 0.2s;
     }
+
     a:hover {
       color: #3b82f6;
     }
-    .bg-white { 
-      background-color: #1f2937 !important; 
+
+    .bg-white {
+      background-color: #1f2937 !important;
     }
-    .text-gray-700 { 
-      color: #d1d5db !important; 
+
+    .text-gray-700 {
+      color: #d1d5db !important;
     }
-    .text-gray-600 { 
-      color: #9ca3af !important; 
+
+    .text-gray-600 {
+      color: #9ca3af !important;
     }
-    .bg-blue-50 { 
-      background-color: #1e293b !important; 
+
+    .bg-blue-50 {
+      background-color: #1e293b !important;
     }
-    .bg-blue-100 { 
-      background-color: #1e3a8a !important; 
+
+    .bg-blue-100 {
+      background-color: #1e3a8a !important;
     }
-    .bg-gray-100 { 
-      background-color: #111827 !important; 
+
+    .bg-gray-100 {
+      background-color: #111827 !important;
     }
+
     .skill-box {
       background-color: #1e293b !important;
       color: #e2e8f0 !important;
       border: 1px solid #334155;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
     }
+
+    .skill-box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+      border-color: #3b82f6;
+    }
+
+    .skill-box img {
+      transition: transform 0.3s ease;
+    }
+
+    .skill-box:hover img {
+      transform: scale(1.2);
+    }
+
     .project-card {
       background-color: #1e293b;
       border: 1px solid #334155;
     }
+
     .project-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
+
     .header {
       background-color: #1f2937;
       border-bottom: 1px solid #374151;
     }
+
     .footer {
       background-color: #1e3a8a;
     }
 
     /* Developer Showcase Section */
     .dev-showcase {
-      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                  url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
       padding: 80px 0;
     }
-    
+
     .dev-showcase-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
       margin-top: 40px;
     }
-    
+
     .dev-showcase-card {
       background-color: rgba(30, 41, 59, 0.8);
       border-radius: 10px;
@@ -127,37 +156,38 @@
       transition: transform 0.3s, box-shadow 0.3s;
       border: 1px solid #334155;
     }
-    
+
     .dev-showcase-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     }
-    
+
     .dev-showcase-img {
       width: 100%;
       height: 200px;
       object-fit: cover;
     }
-    
+
     .dev-showcase-content {
       padding: 20px;
     }
-    
+
     .dev-showcase-content h3 {
       color: #60a5fa;
       margin-bottom: 10px;
     }
-    
+
     /* Hover Effects for Interactive Elements */
     .hover-effect {
       transition: transform 0.3s;
     }
-    
+
     .hover-effect:hover {
       transform: scale(1.05);
     }
   </style>
 </head>
+
 <body class="bg-gray-100 text-gray-200" id="mainBody">
   <!-- Custom Cursor -->
   <div class="cursor"></div>
@@ -182,17 +212,19 @@
   <!-- Hero -->
   <section class="pt-24 pb-16 dev-showcase" data-aos="fade-up">
     <div class="max-w-6xl mx-auto px-6 text-center">
-      <img src="umeshIMG.jpg" alt="Umesh Pandey" class="mx-auto rounded-full w-40 h-40 mb-6 shadow-lg hover:scale-105 transition-transform duration-500 border-4 border-blue-500 hover-effect">
+      <img src="umeshIMG.jpg" alt="Umesh Pandey"
+        class="mx-auto rounded-full w-40 h-40 mb-6 shadow-lg hover:scale-105 transition-transform duration-500 border-4 border-blue-500 hover-effect">
       <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Umesh Pandey</h2>
       <p class="text-lg text-gray-300 mb-6">Java Full Stack & Android Application Developer</p>
       <div class="flex justify-center space-x-4">
-        <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full shadow transition transform hover:-translate-y-1">
+        <a href="#contact"
+          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full shadow transition transform hover:-translate-y-1">
           Hire Me
         </a>
-        <a href="https://drive.google.com/file/d/17pUlTAPG_VpoxUeQvighOBii44K-ol3M/view?usp=drive_link" 
-           download="Umesh_Pandey_Resume.pdf" 
-           class="inline-block bg-blue-600 text-white px-6 py-2 rounded-full shadow hover:bg-blue-700 transition hover-effect">
-           📄 Download Resume
+        <a href="https://drive.google.com/file/d/17pUlTAPG_VpoxUeQvighOBii44K-ol3M/view?usp=drive_link"
+          download="Umesh_Pandey_Resume.pdf"
+          class="inline-block bg-blue-600 text-white px-6 py-2 rounded-full shadow hover:bg-blue-700 transition hover-effect">
+          📄 Download Resume
         </a>
       </div>
     </div>
@@ -204,23 +236,29 @@
       <h3 class="text-2xl font-bold mb-8 text-center text-blue-400">🚀 Development Expertise</h3>
       <div class="dev-showcase-grid">
         <div class="dev-showcase-card" data-aos="fade-up" data-aos-delay="100">
-          <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Java Development" class="dev-showcase-img">
+          <img
+            src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            alt="Java Development" class="dev-showcase-img">
           <div class="dev-showcase-content">
             <h3>Java Backend Development</h3>
             <p class="text-gray-300">Building robust server-side applications with Spring Boot and Hibernate</p>
           </div>
         </div>
-        
+
         <div class="dev-showcase-card" data-aos="fade-up" data-aos-delay="200">
-          <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Android Development" class="dev-showcase-img">
+          <img
+            src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            alt="Android Development" class="dev-showcase-img">
           <div class="dev-showcase-content">
             <h3>Android Applications</h3>
             <p class="text-gray-300">Creating intuitive mobile experiences with Java and Android Studio</p>
           </div>
         </div>
-        
+
         <div class="dev-showcase-card" data-aos="fade-up" data-aos-delay="300">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Full Stack Development" class="dev-showcase-img">
+          <img
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            alt="Full Stack Development" class="dev-showcase-img">
           <div class="dev-showcase-content">
             <h3>Full Stack Solutions</h3>
             <p class="text-gray-300">End-to-end web applications with modern technologies</p>
@@ -235,10 +273,13 @@
     <div class="max-w-4xl mx-auto px-6">
       <h3 class="text-2xl font-bold mb-6 text-blue-400">About Me</h3>
       <p class="text-gray-300 leading-relaxed">
-        I'm Umesh Pandey from Suwasra, Mandsaur (MP). I have completed BCA from Vikram University (2021–2024) and pursuing MCA from Mandsaur University (2024–2026). I love building full-stack applications and Android apps that solve real problems.
+        I'm Umesh Pandey from Suwasra, Mandsaur (MP). I have completed BCA from Vikram University (2021–2024) and
+        pursuing MCA from Mandsaur University (2024–2026). I love building full-stack applications and Android apps that
+        solve real problems.
       </p>
       <p class="text-gray-300 leading-relaxed mt-4">
-        As a passionate developer, I specialize in creating efficient, user-friendly applications using modern technologies. My goal is to build solutions that make a difference while continuously improving my skills.
+        As a passionate developer, I specialize in creating efficient, user-friendly applications using modern
+        technologies. My goal is to build solutions that make a difference while continuously improving my skills.
       </p>
     </div>
   </section>
@@ -248,142 +289,245 @@
     <div class="max-w-6xl mx-auto px-6">
       <h3 class="text-2xl font-bold mb-8 text-center text-blue-400">🛠 Skills</h3>
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <div class="skill-box p-4 rounded-lg text-center font-medium">Java</div>
-        <div class="skill-box p-4 rounded-lg text-center font-medium">C++</div>
-        <div class="skill-box p-4 rounded-lg text-center font-medium">HTML/CSS</div>
-        <div class="skill-box p-4 rounded-lg text-center font-medium">JavaScript</div>
-        <div class="skill-box p-4 rounded-lg text-center font-medium">Spring Boot</div>
-        <div class="skill-box p-4 rounded-lg text-center font-medium">Hibernate</div>
-        <div class="skill-box p-4 rounded-lg text-center font-medium">JSP/Servlet</div>
-        <div class="skill-box p-4 rounded-lg text-center font-medium">MySQL</div>
-        <div class="skill-box p-4 rounded-lg text-center font-medium">SQLite</div>
-        <div class="skill-box p-4 rounded-lg text-center font-medium">Android Studio</div>
-        <div class="skill-box p-4 rounded-lg text-center font-medium">Git/GitHub</div>
-        <div class="skill-box p-4 rounded-lg text-center font-medium">Postman</div>
+        <!-- Java -->
+        <div class="skill-box p-4 rounded-lg flex items-center space-x-3">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"
+            class="w-8 h-8">
+          <span class="font-medium">Java</span>
+        </div>
+
+        <!-- C++ -->
+        <div class="skill-box p-4 rounded-lg flex items-center space-x-3">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++"
+            class="w-8 h-8">
+          <span class="font-medium">C++</span>
+        </div>
+
+        <!-- HTML/CSS -->
+        <div class="skill-box p-4 rounded-lg flex items-center space-x-3">
+          <div class="flex space-x-1">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"
+              class="w-8 h-8">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"
+              class="w-8 h-8">
+          </div>
+          <span class="font-medium">HTML/CSS</span>
+        </div>
+
+        <!-- JavaScript -->
+        <div class="skill-box p-4 rounded-lg flex items-center space-x-3">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+            alt="JavaScript" class="w-8 h-8">
+          <span class="font-medium">JavaScript</span>
+        </div>
+
+        <!-- Spring Boot -->
+        <div class="skill-box p-4 rounded-lg flex items-center space-x-3">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot"
+            class="w-8 h-8">
+          <span class="font-medium">Spring Boot</span>
+        </div>
+
+        <!-- Hibernate -->
+        <div class="skill-box p-4 rounded-lg flex items-center space-x-3">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg" alt="Hibernate"
+            class="w-8 h-8">
+          <span class="font-medium">Hibernate</span>
+        </div>
+
+        <!-- JSP/Servlet -->
+        <div class="skill-box p-4 rounded-lg flex items-center space-x-3">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="JSP/Servlet"
+            class="w-8 h-8">
+          <span class="font-medium">JSP/Servlet</span>
+        </div>
+
+        <!-- MySQL -->
+        <div class="skill-box p-4 rounded-lg flex items-center space-x-3">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"
+            class="w-8 h-8">
+          <span class="font-medium">MySQL</span>
+        </div>
+
+        <!-- SQLite -->
+        <div class="skill-box p-4 rounded-lg flex items-center space-x-3">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite"
+            class="w-8 h-8">
+          <span class="font-medium">SQLite</span>
+        </div>
+
+        <!-- Android Studio -->
+        <div class="skill-box p-4 rounded-lg flex items-center space-x-3">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg"
+            alt="Android Studio" class="w-8 h-8">
+          <span class="font-medium">Android Studio</span>
+        </div>
+
+        <!-- Git/GitHub -->
+        <div class="skill-box p-4 rounded-lg flex items-center space-x-3">
+          <div class="flex space-x-1">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"
+              class="w-8 h-8">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"
+              class="w-8 h-8">
+          </div>
+          <span class="font-medium">Git/GitHub</span>
+        </div>
+
+        <!-- Postman -->
+        <div class="skill-box p-4 rounded-lg flex items-center space-x-3">
+          <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="Postman" class="w-8 h-8">
+          <span class="font-medium">Postman</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Projects -->
   <section id="projects" class="py-16 bg-gray-800" data-aos="fade-up">
-  <div class="max-w-6xl mx-auto px-6">
-    <h3 class="text-3xl font-bold mb-12 text-center text-blue-400 cursor-bubble">🚀 My Projects</h3>
-    
-    <div class="grid md:grid-cols-2 gap-8">
-      <!-- Project 1 -->
-      <div class="project-card bg-gray-700 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-bubble" data-aos="zoom-in">
-        <div class="h-48 overflow-hidden cursor-bubble">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-               alt="Farm Mechanization" 
-               class="w-full h-full object-cover transition-transform duration-500 hover:scale-110 cursor-bubble">
-        </div>
-        <div class="p-6 cursor-bubble">
-          <div class="flex justify-between items-start mb-3 cursor-bubble">
-            <h4 class="text-xl font-bold text-blue-400 cursor-bubble">🚜 Farm Mechanization Status</h4>
-            <span class="bg-blue-900 text-blue-200 text-xs px-2 py-1 rounded-full cursor-bubble">Internship</span>
+    <div class="max-w-6xl mx-auto px-6">
+      <h3 class="text-3xl font-bold mb-12 text-center text-blue-400 cursor-bubble">🚀 My Projects</h3>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Project 1 -->
+        <div
+          class="project-card bg-gray-700 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-bubble"
+          data-aos="zoom-in">
+          <div class="h-48 overflow-hidden cursor-bubble">
+            <img
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+              alt="Farm Mechanization"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110 cursor-bubble">
           </div>
-          <p class="text-gray-400 mb-4 cursor-bubble">
-            Developed during internship at Prema Software Solution. Created both Full Stack web application and Android app for agriculture-tech integration.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4 cursor-bubble">
-            <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">Java</span>
-            <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">Android</span>
-            <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">Spring Boot</span>
-            <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">MySQL</span>
+          <div class="p-6 cursor-bubble">
+            <div class="flex justify-between items-start mb-3 cursor-bubble">
+              <h4 class="text-xl font-bold text-blue-400 cursor-bubble">🚜 Farm Mechanization Status</h4>
+              <span class="bg-blue-900 text-blue-200 text-xs px-2 py-1 rounded-full cursor-bubble">Internship</span>
+            </div>
+            <p class="text-gray-400 mb-4 cursor-bubble">
+              Developed during internship at Prema Software Solution. Created both Full Stack web application and
+              Android app for agriculture-tech integration.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4 cursor-bubble">
+              <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">Java</span>
+              <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">Android</span>
+              <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">Spring Boot</span>
+              <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">MySQL</span>
+            </div>
+
           </div>
-          
         </div>
-      </div>
-      
-      <!-- Project 2 -->
-      <div class="project-card bg-gray-700 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-bubble" data-aos="zoom-in" data-aos-delay="100">
-        <div class="h-48 overflow-hidden cursor-bubble">
-          <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-               alt="Parking Management" 
-               class="w-full h-full object-cover transition-transform duration-500 hover:scale-110 cursor-bubble">
-        </div>
-        <div class="p-6 cursor-bubble">
-          <h4 class="text-xl font-bold text-blue-400 mb-3 cursor-bubble">🅿️ Parking Management System</h4>
-          <p class="text-gray-400 mb-4 cursor-bubble">
-            Android application that manages parking slots, generates tickets with QR codes, and processes payments. Includes admin dashboard for real-time monitoring.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4 cursor-bubble">
-            <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">Java</span>
-            <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">Android</span>
-            <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">SQLite</span>
-            <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">Firebase</span>
+
+        <!-- Project 2 -->
+        <div
+          class="project-card bg-gray-700 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-bubble"
+          data-aos="zoom-in" data-aos-delay="100">
+          <div class="h-48 overflow-hidden cursor-bubble">
+            <img
+              src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+              alt="Parking Management"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110 cursor-bubble">
           </div>
-          <div class="flex justify-between items-center cursor-bubble">
-            <a href="https://github.com/umesh6296/ParkingManagement" target="_blank" class="inline-flex items-center text-blue-400 hover:text-blue-300 text-sm font-medium cursor-bubble">
-              <svg class="w-4 h-4 mr-1 cursor-bubble" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          <div class="p-6 cursor-bubble">
+            <h4 class="text-xl font-bold text-blue-400 mb-3 cursor-bubble">🅿️ Parking Management System</h4>
+            <p class="text-gray-400 mb-4 cursor-bubble">
+              Android application that manages parking slots, generates tickets with QR codes, and processes payments.
+              Includes admin dashboard for real-time monitoring.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4 cursor-bubble">
+              <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">Java</span>
+              <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">Android</span>
+              <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">SQLite</span>
+              <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">Firebase</span>
+            </div>
+            <div class="flex justify-between items-center cursor-bubble">
+              <a href="https://github.com/umesh6296/ParkingManagement" target="_blank"
+                class="inline-flex items-center text-blue-400 hover:text-blue-300 text-sm font-medium cursor-bubble">
+                <svg class="w-4 h-4 mr-1 cursor-bubble" fill="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+                <span>View Code</span>
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div
+          class="project-card bg-gray-700 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-bubble"
+          data-aos="zoom-in" data-aos-delay="200">
+          <div class="h-48 overflow-hidden cursor-bubble">
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+              alt="Feedback System"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110 cursor-bubble">
+          </div>
+          <div class="p-6 cursor-bubble">
+            <h4 class="text-xl font-bold text-blue-400 mb-3 cursor-bubble">📝 Feedback System</h4>
+            <p class="text-gray-400 mb-4 cursor-bubble">
+              Web application for collecting student feedback on courses. Features role-based access control
+              (Admin/Student) and prevents duplicate submissions.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4 cursor-bubble">
+              <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">Java</span>
+              <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">JSP</span>
+              <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">Servlet</span>
+              <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">MySQL</span>
+            </div>
+            <a href="https://github.com/umesh6296/FeedBack-System" target="_blank"
+              class="inline-flex items-center text-blue-400 hover:text-blue-300 text-sm font-medium cursor-bubble">
+              <svg class="w-4 h-4 mr-1 cursor-bubble" fill="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
               </svg>
               <span>View Code</span>
             </a>
-            
           </div>
         </div>
-      </div>
-      
-      <!-- Project 3 -->
-      <div class="project-card bg-gray-700 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-bubble" data-aos="zoom-in" data-aos-delay="200">
-        <div class="h-48 overflow-hidden cursor-bubble">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-               alt="Feedback System" 
-               class="w-full h-full object-cover transition-transform duration-500 hover:scale-110 cursor-bubble">
-        </div>
-        <div class="p-6 cursor-bubble">
-          <h4 class="text-xl font-bold text-blue-400 mb-3 cursor-bubble">📝 Feedback System</h4>
-          <p class="text-gray-400 mb-4 cursor-bubble">
-            Web application for collecting student feedback on courses. Features role-based access control (Admin/Student) and prevents duplicate submissions.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4 cursor-bubble">
-            <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">Java</span>
-            <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">JSP</span>
-            <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">Servlet</span>
-            <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">MySQL</span>
+
+        <!-- Project 4 -->
+        <div
+          class="project-card bg-gray-700 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-bubble"
+          data-aos="zoom-in" data-aos-delay="300">
+          <div class="h-48 overflow-hidden cursor-bubble">
+            <img
+              src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+              alt="Online Course"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110 cursor-bubble">
           </div>
-          <a href="https://github.com/umesh6296/FeedBack-System" target="_blank" class="inline-flex items-center text-blue-400 hover:text-blue-300 text-sm font-medium cursor-bubble">
-            <svg class="w-4 h-4 mr-1 cursor-bubble" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-            <span>View Code</span>
-          </a>
-        </div>
-      </div>
-      
-      <!-- Project 4 -->
-      <div class="project-card bg-gray-700 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-bubble" data-aos="zoom-in" data-aos-delay="300">
-        <div class="h-48 overflow-hidden cursor-bubble">
-          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-               alt="Online Course" 
-               class="w-full h-full object-cover transition-transform duration-500 hover:scale-110 cursor-bubble">
-        </div>
-        <div class="p-6 cursor-bubble">
-          <h4 class="text-xl font-bold text-blue-400 mb-3 cursor-bubble">📚 Online Course Platform</h4>
-          <p class="text-gray-400 mb-4 cursor-bubble">
-            E-learning platform with course browsing, purchase system, and student dashboard. Implemented secure payment integration and progress tracking.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4 cursor-bubble">
-            <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">Spring Boot</span>
-            <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">Hibernate</span>
-            <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">MySQL</span>
-            <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">Thymeleaf</span>
-          </div>
-          <div class="flex justify-between items-center cursor-bubble">
-            <a href="https://github.com/umesh6296/courseSelling" target="_blank" class="inline-flex items-center text-blue-400 hover:text-blue-300 text-sm font-medium cursor-bubble">
-              <svg class="w-4 h-4 mr-1 cursor-bubble" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-              <span>View Code</span>
-            </a>
-            
+          <div class="p-6 cursor-bubble">
+            <h4 class="text-xl font-bold text-blue-400 mb-3 cursor-bubble">📚 Online Course Platform</h4>
+            <p class="text-gray-400 mb-4 cursor-bubble">
+              E-learning platform with course browsing, purchase system, and student dashboard. Implemented secure
+              payment integration and progress tracking.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4 cursor-bubble">
+              <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">Spring Boot</span>
+              <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">Hibernate</span>
+              <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">MySQL</span>
+              <span class="bg-gray-600 text-gray-200 text-xs px-2 py-1 rounded-full cursor-bubble">Thymeleaf</span>
+            </div>
+            <div class="flex justify-between items-center cursor-bubble">
+              <a href="https://github.com/umesh6296/courseSelling" target="_blank"
+                class="inline-flex items-center text-blue-400 hover:text-blue-300 text-sm font-medium cursor-bubble">
+                <svg class="w-4 h-4 mr-1 cursor-bubble" fill="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+                <span>View Code</span>
+              </a>
+
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- Education -->
   <section id="education" class="py-16 bg-blue-50" data-aos="fade-right">
@@ -406,32 +550,41 @@
   <section id="contact" class="py-16 bg-white" data-aos="zoom-in">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h3 class="text-2xl font-bold mb-6 text-blue-400">📞 Get in Touch</h3>
-      <p class="mb-8 text-gray-300 max-w-2xl mx-auto">Feel free to reach out for collaborations or job opportunities. I'm always open to discussing new projects and ideas.</p>
-      
+      <p class="mb-8 text-gray-300 max-w-2xl mx-auto">Feel free to reach out for collaborations or job opportunities.
+        I'm always open to discussing new projects and ideas.</p>
+
       <div class="grid md:grid-cols-2 gap-8 text-left max-w-2xl mx-auto">
         <div>
           <h4 class="text-lg font-semibold mb-4 text-blue-400">Contact Information</h4>
           <p class="text-gray-300 mb-2"><span class="font-medium">Phone:</span> +91 7049569401</p>
-          <p class="text-gray-300 mb-2"><span class="font-medium">Email:</span> <a href="mailto:rudrapandey1455@gmail.com" class="text-blue-400 hover:underline">rudrapandey1455@gmail.com</a></p>
+          <p class="text-gray-300 mb-2"><span class="font-medium">Email:</span> <a
+              href="mailto:rudrapandey1455@gmail.com"
+              class="text-blue-400 hover:underline">rudrapandey1455@gmail.com</a></p>
           <p class="text-gray-300"><span class="font-medium">Location:</span> Suwasra, Mandsaur (MP), India</p>
         </div>
-        
+
         <div>
           <h4 class="text-lg font-semibold mb-4 text-blue-400">Connect With Me</h4>
           <div class="flex space-x-4 justify-center md:justify-start">
-            <a href="https://linkedin.com/in/umesh-pandey-4a6b83243" target="_blank" class="bg-blue-700 hover:bg-blue-800 text-white p-3 rounded-full transition hover-effect">
+            <a href="https://linkedin.com/in/umesh-pandey-4a6b83243" target="_blank"
+              class="bg-blue-700 hover:bg-blue-800 text-white p-3 rounded-full transition hover-effect">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                <path
+                  d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
               </svg>
             </a>
-            <a href="https://github.com/umesh6296" target="_blank" class="bg-gray-700 hover:bg-gray-800 text-white p-3 rounded-full transition hover-effect">
+            <a href="https://github.com/umesh6296" target="_blank"
+              class="bg-gray-700 hover:bg-gray-800 text-white p-3 rounded-full transition hover-effect">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
               </svg>
             </a>
-            <a href="https://www.instagram.com/pandeyji5393/" target="_blank" class="bg-pink-600 hover:bg-pink-700 text-white p-3 rounded-full transition hover-effect">
+            <a href="https://www.instagram.com/pandeyji5393/" target="_blank"
+              class="bg-pink-600 hover:bg-pink-700 text-white p-3 rounded-full transition hover-effect">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                <path
+                  d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
               </svg>
             </a>
           </div>
@@ -449,83 +602,84 @@
   </footer>
 
   <script>
-  // Initialize AOS animations
-  AOS.init({
-    duration: 800,
-    easing: 'ease-in-out',
-    once: true
-  });
+    // Initialize AOS animations
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
 
-  // Particle Trail Cursor - Replace your existing cursor code with this
-  const cursor = document.querySelector('.cursor');
-  const particles = [];
-  const particleCount = 12;
-  let mouseX = 0;
-  let mouseY = 0;
-  
-  // Create particles
-  for (let i = 0; i < particleCount; i++) {
-    const particle = document.createElement('div');
-    particle.className = 'cursor-particle';
-    document.body.appendChild(particle);
-    particles.push({
-      element: particle,
-      x: 0,
-      y: 0,
-      delay: (i / particleCount) * 0.3,
-      size: Math.random() * 4 + 3
+    // Particle Trail Cursor - Replace your existing cursor code with this
+    const cursor = document.querySelector('.cursor');
+    const particles = [];
+    const particleCount = 12;
+    let mouseX = 0;
+    let mouseY = 0;
+
+    // Create particles
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'cursor-particle';
+      document.body.appendChild(particle);
+      particles.push({
+        element: particle,
+        x: 0,
+        y: 0,
+        delay: (i / particleCount) * 0.3,
+        size: Math.random() * 4 + 3
+      });
+    }
+
+    // Track mouse movement
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursor.style.left = mouseX + 'px';
+      cursor.style.top = mouseY + 'px';
     });
-  }
-  
-  // Track mouse movement
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    cursor.style.left = mouseX + 'px';
-    cursor.style.top = mouseY + 'px';
-  });
-  
-  // Animate particles
-  function animateParticles() {
-    particles.forEach((particle, index) => {
-      const delay = particle.delay * 1000;
-      const size = particle.size;
-      
-      setTimeout(() => {
-        particle.x += (mouseX - particle.x) * 0.2;
-        particle.y += (mouseY - particle.y) * 0.2;
-        
-        particle.element.style.left = particle.x + 'px';
-        particle.element.style.top = particle.y + 'px';
-        particle.element.style.width = size + 'px';
-        particle.element.style.height = size + 'px';
-        particle.element.style.opacity = 1 - (index / particleCount);
-        particle.element.style.transform = `translate(-50%, -50%) scale(${1 - (index / particleCount)})`;
-        particle.element.style.background = `rgba(59, 130, 246, ${1 - (index / particleCount)})`;
-      }, delay);
+
+    // Animate particles
+    function animateParticles() {
+      particles.forEach((particle, index) => {
+        const delay = particle.delay * 1000;
+        const size = particle.size;
+
+        setTimeout(() => {
+          particle.x += (mouseX - particle.x) * 0.2;
+          particle.y += (mouseY - particle.y) * 0.2;
+
+          particle.element.style.left = particle.x + 'px';
+          particle.element.style.top = particle.y + 'px';
+          particle.element.style.width = size + 'px';
+          particle.element.style.height = size + 'px';
+          particle.element.style.opacity = 1 - (index / particleCount);
+          particle.element.style.transform = `translate(-50%, -50%) scale(${1 - (index / particleCount)})`;
+          particle.element.style.background = `rgba(59, 130, 246, ${1 - (index / particleCount)})`;
+        }, delay);
+      });
+
+      requestAnimationFrame(animateParticles);
+    }
+
+    animateParticles();
+
+    // Interactive elements effect
+    const interactiveElements = document.querySelectorAll(
+      'a, button, .project-card, .dev-showcase-card, .hover-effect'
+    );
+
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.classList.add('cursor-active');
+        el.classList.add('glow-on-hover');
+      });
+
+      el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('cursor-active');
+        el.classList.remove('glow-on-hover');
+      });
     });
-    
-    requestAnimationFrame(animateParticles);
-  }
-  
-  animateParticles();
-  
-  // Interactive elements effect
-  const interactiveElements = document.querySelectorAll(
-    'a, button, .project-card, .dev-showcase-card, .hover-effect'
-  );
-  
-  interactiveElements.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.classList.add('cursor-active');
-      el.classList.add('glow-on-hover');
-    });
-    
-    el.addEventListener('mouseleave', () => {
-      cursor.classList.remove('cursor-active');
-      el.classList.remove('glow-on-hover');
-    });
-  });
-</script>
+  </script>
 </body>
+
 </html>
