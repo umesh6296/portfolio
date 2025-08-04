@@ -555,41 +555,64 @@
 
       <div class="grid md:grid-cols-2 gap-8">
         <!-- Contact Form -->
-        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-          <h4 class="text-lg font-semibold mb-4 text-blue-400">Send Me a Message</h4>
-          <form id="contactForm" class="space-y-4">
-            <div>
-              <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Your Name</label>
-              <input type="text" id="name" name="name" required
-                class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200">
-            </div>
-            <div>
-              <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email Address</label>
-              <input type="email" id="email" name="email" required
-                class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200">
-            </div>
-            <div>
-              <label for="phone" class="block text-sm font-medium text-gray-300 mb-1">Phone Number</label>
-              <input type="tel" id="phone" name="phone"
-                class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200">
-            </div>
-            <div>
-              <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Your Message</label>
-              <textarea id="message" name="message" rows="4" required
-                class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200"></textarea>
-            </div>
-            <button type="submit"
-              class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition duration-300 flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-              </svg>
-              Send Message
-            </button>
-            <div id="formResponse" class="hidden mt-4 p-3 rounded-md"></div>
-          </form>
-        </div>
-
+        <!-- Updated Contact Form Section -->
+<div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+  <h4 class="text-lg font-semibold mb-4 text-blue-400">Send Me a Message</h4>
+  <form id="contactForm" class="space-y-4">
+    <div>
+      <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Your Name</label>
+      <input type="text" id="name" name="name" required
+        class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200">
+    </div>
+    <div>
+      <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email Address</label>
+      <input type="email" id="email" name="email" required
+        class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200">
+      <p id="emailError" class="text-red-400 text-xs mt-1 hidden">Please enter a valid email address</p>
+    </div>
+    
+    <div>
+      <label for="country" class="block text-sm font-medium text-gray-300 mb-1">Country</label>
+      <select id="country" name="country" required
+        class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200">
+        <option value="">Select Country</option>
+        <option value="India">India (+91)</option>
+        <option value="USA">USA (+1)</option>
+        <option value="UK">UK (+44)</option>
+        <option value="Germany">Germany (+49)</option>
+        <option value="Australia">Australia (+61)</option>
+        <option value="Japan">Japan (+81)</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+    
+    <div>
+      <label for="phone" class="block text-sm font-medium text-gray-300 mb-1">Phone Number</label>
+      <div class="flex">
+        <input type="text" id="countryCode" name="countryCode" readonly
+          class="w-1/4 px-4 py-2 bg-gray-600 border border-gray-600 rounded-l-md text-gray-200">
+        <input type="tel" id="phone" name="phone" 
+          class="w-3/4 px-4 py-2 bg-gray-700 border border-gray-600 rounded-r-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200">
+      </div>
+      <p id="phoneError" class="text-red-400 text-xs mt-1 hidden">Please enter a valid phone number</p>
+    </div>
+    
+    <div>
+      <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Your Message</label>
+      <textarea id="message" name="message" rows="4" required
+        class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200"></textarea>
+    </div>
+    <button type="submit"
+      class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition duration-300 flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+      </svg>
+      Send Message
+    </button>
+    <div id="formResponse" class="hidden mt-4 p-3 rounded-md"></div>
+  </form>
+</div>
         <!-- Contact Information -->
         <div>
           <h4 class="text-lg font-semibold mb-4 text-blue-400">Contact Information</h4>
@@ -774,6 +797,149 @@
           formResponse.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         });
     });
+
+    const countryCodes = {
+    'India': '+91',
+    'USA': '+1',
+    'UK': '+44',
+    'Germany': '+49',
+    'Australia': '+61',
+    'Japan': '+81',
+    'Other': '+'
+  };
+
+  // Phone number validation patterns by country
+  const phonePatterns = {
+    'India': /^[6-9]\d{9}$/,
+    'USA': /^\d{10}$/,
+    'UK': /^\d{10}$/,
+    'Germany': /^\d{10,11}$/,
+    'Australia': /^\d{9}$/,
+    'Japan': /^\d{10,11}$/,
+    'Other': /^\d{6,15}$/
+  };
+
+  // Update country code when country changes
+  document.getElementById('country').addEventListener('change', function() {
+    const country = this.value;
+    const countryCodeInput = document.getElementById('countryCode');
+    countryCodeInput.value = countryCodes[country] || '+';
+  });
+
+  // Email validation
+  function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
+
+  // Phone validation
+  function validatePhone(phone, country) {
+    if (!country || !phone) return false;
+    const pattern = phonePatterns[country];
+    return pattern.test(phone);
+  }
+
+  // Form submission handler
+  const contactForm = document.getElementById('contactForm');
+  const formResponse = document.getElementById('formResponse');
+  const emailError = document.getElementById('emailError');
+  const phoneError = document.getElementById('phoneError');
+
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Reset error messages
+    emailError.classList.add('hidden');
+    phoneError.classList.add('hidden');
+    
+    // Get form values
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const country = document.getElementById('country').value;
+    const phone = document.getElementById('phone').value;
+    const message = document.getElementById('message').value;
+    
+    // Validate email
+    if (!validateEmail(email)) {
+      emailError.classList.remove('hidden');
+      return;
+    }
+    
+    // Validate phone if provided
+    if (phone && !validatePhone(phone, country)) {
+      phoneError.textContent = getPhoneErrorMessage(country);
+      phoneError.classList.remove('hidden');
+      return;
+    }
+    
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.innerHTML;
+    
+    // Show loading state
+    submitButton.innerHTML = `
+      <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+      Sending...
+    `;
+    submitButton.disabled = true;
+    
+    // Prepare email parameters
+    const templateParams = {
+      name: name,
+      email: email,
+      country: country,
+      phone: countryCodes[country] + ' ' + phone,
+      message: message
+    };
+    
+    // Send email using EmailJS
+    emailjs.send('service_ar1b87a', 'template_pmgm11o', templateParams)
+      .then(function(response) {
+        formResponse.classList.remove('hidden');
+        formResponse.classList.remove('bg-red-500');
+        formResponse.classList.add('bg-green-500');
+        formResponse.textContent = "Your message sent successfully!";
+        
+        // Hide the message after 3 seconds
+        setTimeout(() => {
+          formResponse.classList.add('hidden');
+        }, 3000);
+        
+        contactForm.reset();
+      }, function(error) {
+        formResponse.classList.remove('hidden');
+        formResponse.classList.remove('bg-green-500');
+        formResponse.classList.add('bg-red-500');
+        formResponse.textContent = "Error sending message. Please try again or email me directly at umeshpandey6296@gmail.com";
+        console.error('EmailJS Error:', error);
+      })
+      .finally(function() {
+        submitButton.innerHTML = originalButtonText;
+        submitButton.disabled = false;
+        formResponse.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+  });
+
+  // Helper function for phone error messages
+  function getPhoneErrorMessage(country) {
+    switch(country) {
+      case 'India': return 'Please enter a valid 10-digit Indian mobile number (starting with 6-9)';
+      case 'USA': return 'Please enter a valid 10-digit US phone number';
+      case 'UK': return 'Please enter a valid 10-digit UK phone number';
+      case 'Germany': return 'Please enter a valid 10-11 digit German phone number';
+      case 'Australia': return 'Please enter a valid 9-digit Australian phone number';
+      case 'Japan': return 'Please enter a valid 10-11 digit Japanese phone number';
+      default: return 'Please enter a valid phone number (6-15 digits)';
+    }
+  }
+
+  // Prevent non-numeric input in phone field
+  document.getElementById('phone').addEventListener('input', function(e) {
+    this.value = this.value.replace(/[^0-9]/g, '');
+  });
+
   </script>
 </body>
 
