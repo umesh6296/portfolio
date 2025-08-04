@@ -739,42 +739,34 @@
   `;
       submitButton.disabled = true;
 
-      // Prepare email parameters - all fields are included here
+      // Prepare email parameters
       const templateParams = {
         name: document.getElementById('name').value,
         email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value || 'Not provided', // Fallback if phone is empty
+        phone: document.getElementById('phone').value || 'Not provided',
         message: document.getElementById('message').value
       };
-
-      console.log('Sending with params:', templateParams); // Debug log
 
       // Send email using EmailJS
       emailjs.send('service_ar1b87a', 'template_pmgm11o', templateParams)
         .then(function (response) {
-          console.log('SUCCESS!', response.status, response.text);
           formResponse.classList.remove('hidden');
           formResponse.classList.remove('bg-red-500');
           formResponse.classList.add('bg-green-500');
-          formResponse.innerHTML = `
-        <p>Message sent successfully! I'll get back to you soon.</p>
-        <p class="mt-2 text-sm">Details received:</p>
-        <ul class="text-xs mt-1">
-          <li>Name: ${templateParams.name}</li>
-          <li>Email: ${templateParams.email}</li>
-          <li>Phone: ${templateParams.phone}</li>
-        </ul>
-      `;
+          formResponse.textContent = "Your message sent successfully!";
+
+          // Hide the message after 3 seconds
+          setTimeout(() => {
+            formResponse.classList.add('hidden');
+          }, 3000);
+
           contactForm.reset();
         }, function (error) {
-          console.error('FAILED...', error);
           formResponse.classList.remove('hidden');
           formResponse.classList.remove('bg-green-500');
           formResponse.classList.add('bg-red-500');
-          formResponse.innerHTML = `
-        <p>Error sending message. Please try again or email me directly at <a href="mailto:umeshpandey6296@gmail.com" class="underline">umeshpandey6296@gmail.com</a></p>
-        <p class="mt-2 text-sm">Error details: ${error.text || 'Unknown error'}</p>
-      `;
+          formResponse.textContent = "Error sending message. Please try again or email me directly at umeshpandey6296@gmail.com";
+          console.error('EmailJS Error:', error);
         })
         .finally(function () {
           submitButton.innerHTML = originalButtonText;
