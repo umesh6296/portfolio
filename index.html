@@ -186,6 +186,136 @@
       transform: scale(1.05);
     }
   </style>
+
+  <script>
+    // Initialize AOS animations
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+
+    // Particle Trail Cursor
+    const cursor = document.querySelector('.cursor');
+    const particles = [];
+    const particleCount = 12;
+    let mouseX = 0;
+    let mouseY = 0;
+
+    // Create particles
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'cursor-particle';
+      document.body.appendChild(particle);
+      particles.push({
+        element: particle,
+        x: 0,
+        y: 0,
+        delay: (i / particleCount) * 0.3,
+        size: Math.random() * 4 + 3
+      });
+    }
+
+    // Track mouse movement
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursor.style.left = mouseX + 'px';
+      cursor.style.top = mouseY + 'px';
+    });
+
+    // Animate particles
+    function animateParticles() {
+      particles.forEach((particle, index) => {
+        const delay = particle.delay * 1000;
+        const size = particle.size;
+
+        setTimeout(() => {
+          particle.x += (mouseX - particle.x) * 0.2;
+          particle.y += (mouseY - particle.y) * 0.2;
+
+          particle.element.style.left = particle.x + 'px';
+          particle.element.style.top = particle.y + 'px';
+          particle.element.style.width = size + 'px';
+          particle.element.style.height = size + 'px';
+          particle.element.style.opacity = 1 - (index / particleCount);
+          particle.element.style.transform = `translate(-50%, -50%) scale(${1 - (index / particleCount)})`;
+          particle.element.style.background = `rgba(59, 130, 246, ${1 - (index / particleCount)})`;
+        }, delay);
+      });
+
+      requestAnimationFrame(animateParticles);
+    }
+
+    animateParticles();
+
+    // Interactive elements effect
+    const interactiveElements = document.querySelectorAll(
+      'a, button, .project-card, .dev-showcase-card, .hover-effect'
+    );
+
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.classList.add('cursor-active');
+        el.classList.add('glow-on-hover');
+      });
+
+      el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('cursor-active');
+        el.classList.remove('glow-on-hover');
+      });
+    });
+
+    // EmailJS Contact Form Submission
+    const contactForm = document.getElementById('contactForm');
+    const formResponse = document.getElementById('formResponse');
+    
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton.innerHTML;
+      
+      // Show loading state
+      submitButton.innerHTML = `
+        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        Sending...
+      `;
+      submitButton.disabled = true;
+      
+      // Prepare email parameters
+      const templateParams = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        message: document.getElementById('message').value
+      };
+      
+      // Send email using EmailJS
+      emailjs.send('service_ar1b87a', 'template_pmgm11o', templateParams)
+        .then(function(response) {
+          formResponse.classList.remove('hidden');
+          formResponse.classList.remove('bg-red-500');
+          formResponse.classList.add('bg-green-500');
+          formResponse.textContent = "Message sent successfully! I'll get back to you soon.";
+          contactForm.reset();
+        }, function(error) {
+          formResponse.classList.remove('hidden');
+          formResponse.classList.remove('bg-green-500');
+          formResponse.classList.add('bg-red-500');
+          formResponse.textContent = "Error sending message. Please try again or email me directly at umeshpandey6296@gmail.com";
+          console.error('EmailJS Error:', error);
+        })
+        .finally(function() {
+          submitButton.innerHTML = originalButtonText;
+          submitButton.disabled = false;
+          formResponse.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+    });
+  </script>
 </head>
 
 <body class="bg-gray-100 text-gray-200" id="mainBody">
@@ -633,150 +763,7 @@
     </div>
   </footer>
 
-  <script>
-    // Initialize AOS animations
-    AOS.init({
-      duration: 800,
-      easing: 'ease-in-out',
-      once: true
-    });
-
-    // Particle Trail Cursor - Replace your existing cursor code with this
-    const cursor = document.querySelector('.cursor');
-    const particles = [];
-    const particleCount = 12;
-    let mouseX = 0;
-    let mouseY = 0;
-
-    // Create particles
-    for (let i = 0; i < particleCount; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'cursor-particle';
-      document.body.appendChild(particle);
-      particles.push({
-        element: particle,
-        x: 0,
-        y: 0,
-        delay: (i / particleCount) * 0.3,
-        size: Math.random() * 4 + 3
-      });
-    }
-
-    // Track mouse movement
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      cursor.style.left = mouseX + 'px';
-      cursor.style.top = mouseY + 'px';
-    });
-
-    // Animate particles
-    function animateParticles() {
-      particles.forEach((particle, index) => {
-        const delay = particle.delay * 1000;
-        const size = particle.size;
-
-        setTimeout(() => {
-          particle.x += (mouseX - particle.x) * 0.2;
-          particle.y += (mouseY - particle.y) * 0.2;
-
-          particle.element.style.left = particle.x + 'px';
-          particle.element.style.top = particle.y + 'px';
-          particle.element.style.width = size + 'px';
-          particle.element.style.height = size + 'px';
-          particle.element.style.opacity = 1 - (index / particleCount);
-          particle.element.style.transform = `translate(-50%, -50%) scale(${1 - (index / particleCount)})`;
-          particle.element.style.background = `rgba(59, 130, 246, ${1 - (index / particleCount)})`;
-        }, delay);
-      });
-
-      requestAnimationFrame(animateParticles);
-    }
-
-    animateParticles();
-
-    // Interactive elements effect
-    const interactiveElements = document.querySelectorAll(
-      'a, button, .project-card, .dev-showcase-card, .hover-effect'
-    );
-
-    interactiveElements.forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursor.classList.add('cursor-active');
-        el.classList.add('glow-on-hover');
-      });
-
-      el.addEventListener('mouseleave', () => {
-        cursor.classList.remove('cursor-active');
-        el.classList.remove('glow-on-hover');
-      });
-    });
-
-        // Contact Form Submission
-    const contactForm = document.getElementById('contactForm');
-    const formResponse = document.getElementById('formResponse');
-    
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const formData = new FormData(contactForm);
-      const submitButton = contactForm.querySelector('button[type="submit"]');
-      const originalButtonText = submitButton.innerHTML;
-      
-      // Show loading state
-      submitButton.innerHTML = `
-        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-        </svg>
-        Sending...
-      `;
-      submitButton.disabled = true;
-      
-      // Using FormSubmit.co as a simple solution
-      fetch("https://formsubmit.co/ajax/umeshpandey6296@gmail.com", {
-        method: "POST",
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: formData.get('name'),
-          email: formData.get('email'),
-          phone: formData.get('phone'),
-          message: formData.get('message'),
-          _subject: "New Message from Portfolio Website",
-          _template: "box"
-        })
-      })
-      .then(response => response.json())
-      .then(data => {
-        formResponse.classList.remove('hidden');
-        if (data.success === "true") {
-          formResponse.classList.remove('bg-red-500');
-          formResponse.classList.add('bg-green-500');
-          formResponse.textContent = "Message sent successfully! I'll get back to you soon.";
-          contactForm.reset();
-        } else {
-          formResponse.classList.remove('bg-green-500');
-          formResponse.classList.add('bg-red-500');
-          formResponse.textContent = "Error sending message. Please try again or email me directly.";
-        }
-      })
-      .catch(error => {
-        formResponse.classList.remove('hidden', 'bg-green-500');
-        formResponse.classList.add('bg-red-500');
-        formResponse.textContent = "Error sending message. Please try again or email me directly.";
-      })
-      .finally(() => {
-        submitButton.innerHTML = originalButtonText;
-        submitButton.disabled = false;
-        
-        // Scroll to the response message
-        formResponse.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      });
-    });
-  </script>
+  
 </body>
 
 </html>
